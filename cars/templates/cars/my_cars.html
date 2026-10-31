@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mənim elanlarım - Turbo.az</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f3f5;
+        }
+
+        header {
+            background: #ca1016;
+            color: white;
+            padding: 20px 7%;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 90%;
+            margin: 30px auto;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .car {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .car img {
+            width: 180px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .info {
+            flex: 1;
+        }
+
+        .price {
+            color: #ca1016;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        a, button {
+            display: inline-block;
+            padding: 10px 18px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            color: white;
+            background: #ca1016;
+        }
+
+        .delete {
+            background: #333;
+        }
+
+        .empty {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>Turbo.az</header>
+
+<div class="container">
+
+    <h2>Mənim elanlarım</h2>
+
+    {% if cars %}
+
+        {% for car in cars %}
+
+        <div class="car">
+
+            {% if car.shekil %}
+                <img src="{{ car.shekil.url }}">
+            {% endif %}
+
+            <div class="info">
+
+                <h3>{{ car.marka }} {{ car.model }}</h3>
+
+                <p>{{ car.il }} · {{ car.muherrik }}</p>
+
+                <p>{{ car.yurus }} km</p>
+
+                <div class="price">
+                    {{ car.qiymet }} AZN
+                </div>
+
+                <a href="{% url 'edit_car' car.id %}">
+                    Redaktə et
+                </a>
+
+                <a class="delete" href="{% url 'delete_car' car.id %}">
+                    Sil
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="empty">
+            <h3>Hələ elan yerləşdirməmisiniz.</h3>
+            <a href="{% url 'add_car' %}">Elan yerləşdir</a>
+        </div>
+
+    {% endif %}
+
+    <br>
+
+    <a href="{% url 'home' %}">Ana səhifəyə qayıt</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>Elanı sil - Turbo.az</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f3f5;
+            text-align: center;
+            margin: 0;
+        }
+
+        header {
+            background: #ca1016;
+            color: white;
+            padding: 20px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .container {
+            background: white;
+            width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        button {
+            background: #ca1016;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        a {
+            background: #555;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>Turbo.az</header>
+
+<div class="container">
+
+    <h2>Elanı silmək istəyirsiniz?</h2>
+
+    <h3>{{ car.marka }} {{ car.model }}</h3>
+
+    <p>Bu elan silinəcək. Əməliyyatı geri qaytarmaq mümkün olmayacaq.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <button type="submit">Bəli, sil</button>
+
+        <a href="{% url 'my_cars' %}">Xeyr, geri qayıt</a>
+    </form>
+
+</div>
+
+</body>
+</html>

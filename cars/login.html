@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>Giriş - Turbo.az</title>
+
+    <style>
+        body {
+            background: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            background: white;
+            max-width: 400px;
+            margin: 70px auto;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            color: #e00000;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #e00000;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Turbo.az</h1>
+    <h2>Hesaba daxil ol</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Daxil ol</button>
+    </form>
+
+    <p>Hesabın yoxdur?
+        <a href="{% url 'register' %}">Qeydiyyatdan keç</a>
+    </p>
+
+</div>
+
+</body>
+</html>

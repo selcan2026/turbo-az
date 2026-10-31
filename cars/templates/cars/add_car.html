@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>Elan yerləşdir - Turbo.az</title>
+
+    <style>
+        body {
+            background: #f2f2f2;
+            font-family: Arial;
+        }
+
+        .form-box {
+            background: white;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            background: #e00000;
+            color: white;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-box">
+
+    <h1>Elan yerləşdir</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+
+
+        {% csrf_token %}
+
+        <input type="text" name="marka" placeholder="Marka" required>
+
+        <input type="text" name="model" placeholder="Model" required>
+
+        <input type="number" name="il" placeholder="Buraxılış ili" required>
+
+        <input type="number" name="qiymet" placeholder="Qiymət (AZN)" required>
+
+        <input type="text" name="muherrik" placeholder="Mühərrik" required>
+
+        <input type="number" name="yurus" placeholder="Yürüş (km)" required>
+
+        <label>Avtomobilin şəklini seç:</label>
+<input type="file" name="shekil" accept="image/*">
+
+
+        <button type="submit">Elanı yerləşdir</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

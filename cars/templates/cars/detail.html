@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ car.marka }} {{ car.model }}</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'cars/style.css' %}">
+<style>
+    body {
+        background: #f2f2f2;
+        font-family: Arial, sans-serif;
+    }
+
+    .car-card {
+        background: white;
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 25px;
+        border-radius: 12px;
+    }
+
+    .car-card img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    button {
+        background: #e00000;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #b00000;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Turbo.az</div>
+    <a href="/">Ana səhifəyə qayıt</a>
+</header>
+
+<section class="cars">
+
+    <div class="car-card">
+
+        <img src="{{ car.shekil }}" alt="{{ car.marka }}">
+
+        <h1>{{ car.marka }} {{ car.model }}</h1>
+
+        <h2>{{ car.qiymet }} AZN</h2>
+
+        <p>Buraxılış ili: {{ car.il }}</p>
+
+        <p>Mühərrik: {{ car.muherrik }}</p>
+
+        <p>Yürüş: {{ car.yurus }} km</p>
+
+        <button onclick="alert('Satıcı ilə əlaqə saxlamaq üçün mesaj bölməsi hazırlanır!')">
+    Əlaqə saxla
+</button>
+
+
+        <p>Elanın tarixi: {{ car.tarix }}</p>
+
+    </div>
+
+</section>
+
+</body>
+</html>

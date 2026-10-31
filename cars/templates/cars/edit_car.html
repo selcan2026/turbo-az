@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>Elanı redaktə et - Turbo.az</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f3f5;
+            margin: 0;
+        }
+
+        header {
+            background: #ca1016;
+            color: white;
+            padding: 20px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .container {
+            background: white;
+            width: 400px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            background: #ca1016;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>Turbo.az</header>
+
+<div class="container">
+
+    <h2>Elanı redaktə et</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <input type="text" name="marka"
+               value="{{ car.marka }}" placeholder="Marka" required>
+
+        <input type="text" name="model"
+               value="{{ car.model }}" placeholder="Model" required>
+
+        <input type="number" name="il"
+               value="{{ car.il }}" placeholder="Buraxılış ili" required>
+
+        <input type="number" step="0.01" name="qiymet"
+               value="{{ car.qiymet }}" placeholder="Qiymət" required>
+
+        <input type="text" name="muherrik"
+               value="{{ car.muherrik }}" placeholder="Mühərrik" required>
+
+        <input type="number" name="yurus"
+               value="{{ car.yurus }}" placeholder="Yürüş" required>
+
+        <p>Yeni şəkil seç:</p>
+
+        <input type="file" name="shekil" accept="image/*">
+
+        <button type="submit">Yadda saxla</button>
+
+    </form>
+
+    <br>
+
+    <a href="{% url 'my_cars' %}">Geri qayıt</a>
+
+</div>
+
+</body>
+</html>

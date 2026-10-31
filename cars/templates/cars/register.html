@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>Qeydiyyat - Turbo.az</title>
+</head>
+<body style="background:#f2f2f2; font-family:Arial;">
+
+<div style="background:white; width:350px; margin:80px auto; padding:30px; border-radius:12px;">
+
+    <h1 style="color:red; text-align:center;">Turbo.az</h1>
+
+    <h2>Qeydiyyat</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Qeydiyyatdan keç</button>
+    </form>
+
+    <p>Hesabın var?
+        <a href="{% url 'login' %}">Daxil ol</a>
+    </p>
+
+</div>
+
+</body>
+</html>

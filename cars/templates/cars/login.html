@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>Turbo.az - Giriş</title>
+</head>
+<body>
+    <h1>Turbo.az</h1>
+    <h2>Hesaba daxil ol</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Daxil ol</button>
+    </form>
+
+    <p>Hesabın yoxdur? <a href="/register/">Qeydiyyatdan keç</a></p>
+    <a href="/">Ana səhifə</a>
+</body>
+</html>
